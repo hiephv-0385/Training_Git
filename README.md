@@ -1,4 +1,5 @@
 # Training_Git
 Training git
 
-# New content
+# This is ew content
+Author: Han Van Hiep
