@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/QAPage"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>version control - How do you make Git ignore files without using .gitignore? - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="How do you make Git ignore files without using .gitignore?">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="Due to external weird constraints I cannot modify the .gitignore of my repository. Is there a way to ignore files and directories other than modifying a .gitignore? Even if it is a global solution ...">
+    <meta property="og:url" content="http://stackoverflow.com/questions/653454/how-do-you-make-git-ignore-files-without-using-gitignore">
+    <link rel="canonical" href="http://stackoverflow.com/questions/653454/how-do-you-make-git-ignore-files-without-using-gitignore">
+
+    
+    
+    <script src="bb_files/ados_002.js" async="" type="text/javascript"></script><script src="bb_files/quant.js" async=""></script><script src="bb_files/beacon.js" async=""></script><script src="bb_files/analytics.js" async=""></script><script src="bb_files/ados.js" async="" type="text/javascript"></script><script src="bb_files/jquery.js"></script>
+    <script src="bb_files/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="bb_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question 'How do you make Git ignore files without using .gitignore?'" href="http://stackoverflow.com/feeds/question/653454">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/653454/how-do-you-make-git-ignore-files-without-using-gitignore">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/653454/how-do-you-make-git-ignore-files-without-using-gitignore">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/653454/how-do-you-make-git-ignore-files-without-using-gitignore">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:653454});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '653454');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1445217517,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"globalAuthDisabled":true,"nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"5c51dbc6f56ddfc901c76c0f2145d3fb","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"ab":{"anon_popups":{"v":"d","g":1},"profile_integration_signup":{"v":"b","g":1}}}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"f3d53dad4c22","js/moderator.en.js":"fa05d92dbab5","js/full-anon.en.js":"3d170576686f","js/full.en.js":"72265ec4d33b","js/wmd.en.js":"93bf4b8da915","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"f9007a314275","js/help.en.js":"69b2e9e77696","js/tageditor.en.js":"c84618a71b61","js/tageditornew.en.js":"3c95b8b827f4","js/inline-tag-editing.en.js":"de80429b1816","js/revisions.en.js":"9e897f24d78d","js/review.en.js":"07004bafa2a0","js/tagsuggestions.en.js":"d1ff9b84abe5","js/post-validation.en.js":"cdaae4616a26","js/explore-qlist.en.js":"cd6e5274146c","js/events.en.js":"56d31cc69b44","js/keyboard-shortcuts.en.js":"a8f86d8a32bb","js/external-editor.en.js":"6484cd83ad12","js/external-editor.en.js":"6484cd83ad12","js/snippet-javascript.en.js":"ad6b3ff5e697","js/snippet-javascript-codemirror.en.js":"bf736facf21d"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    
+    
+<script src="bb_files/full-anon.js" async=""></script><script src="bb_files/snippet-javascript.js" async=""></script><script src="bb_files/post-validation.js" async=""></script><script src="bb_files/external-editor.js" async=""></script><script src="bb_files/adFeedback.js" type="text/javascript"></script><link href="bb_files/adFeedback.css" rel="stylesheet"><script src="bb_files/p.js" async=""></script><link href="bb_files/jobs.css" rel="stylesheet" type="text/css"></head>
+<body class="question-page new-topbar">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackoverflow.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+                    <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link js-gps-track" href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&amp;utm_medium=site-ui&amp;utm_campaign=multicollider" data-gps-track="site_switcher.click({ item_type:9 })">
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Stack Overflow Careers
+                    </a>
+                </li>
+        </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f653454%2fhow-do-you-make-git-ignore-files-without-using-gitignore" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f653454%2fhow-do-you-make-git-ignore-files-without-using-gitignore" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+            </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+        <a href="http://blog.stackoverflow.com/" class="fr">company blog</a>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 150 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+    <a href="#" class="topbar-icon icon-inbox yes-hover js-inbox-button" title="Recent inbox messages">
+        <span class="hidden-text">Inbox</span>
+        <span class="unread-count" style="display:none"></span>
+    </a>
+    <a href="#" class="topbar-icon icon-achievements yes-hover js-achievements-button" data-unread-class="" title="Recent achievements: reputation, badges, and privileges earned">
+        <span class="hidden-text">Reputation and Badges</span>
+        <span class="unread-count" style="display:none">
+            
+        </span>
+    </a>
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                    <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f653454%2fhow-do-you-make-git-ignore-files-without-using-gitignore" class="login-link">sign up</a>
+                                <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f653454%2fhow-do-you-make-git-ignore-files-without-using-gitignore" class="login-link">log in</a>
+
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                            <a href="#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                            <a href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&amp;utm_medium=site-ui&amp;utm_campaign=anon-topbar">stack overflow careers</a>
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="/search" method="get" autocomplete="off">
+                    <input name="q" placeholder="search" tabindex="1" autocomplete="off" maxlength="240" type="text">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/help/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+			<!--googleoff: all-->
+
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+                <a href="http://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f653454%2fhow-do-you-make-git-ignore-files-without-using-gitignore" id="tell-me-more" class="button">Sign up</a>
+            <span id="close"><a title="click to dismiss">×</a></span>
+        </span>
+        <div id="blurb">
+            Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free.
+        </div>        
+    </div>
+    <script>
+        StackExchange.ready(function() {
+            var clickSource = $("body").attr("class") + '-mini';
+            var location = 0;
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+                location = 2;
+            } else if ($("body").hasClass("question-page")) {
+                clickSource = 'questionpagemini';
+                location = 2;
+            } else if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+                location = 4;
+            }
+
+            $('#tell-me-more').click(function () {
+                StackExchange.using("gps", function () {
+                    StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+                });
+            });
+            $('#herobox-mini #close').click(function () {
+                StackExchange.using("gps", function () {
+                    StackExchange.gps.track("hero.action", { hero_action_type: "close", location: location }, true);
+                });
+                $.cookie("hero", "none", { path: "/", expires: 365 });
+                var $hero = $("#herobox-mini");
+                $hero.slideUp('fast', function () { $hero.remove(); });
+                return false;
+            });
+        });
+    </script>
+</div>
+			<!--googleon: all-->
+			<div id="question-header">
+                <h1 itemprop="name"><a href="http://stackoverflow.com/questions/653454/how-do-you-make-git-ignore-files-without-using-gitignore" class="question-hyperlink">How do you make Git ignore files without using .gitignore?</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="653454" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk356548311",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk356548311"><a href="http://engine.adzerk.net/r?e=eyJhdiI6MTEzNywiYXQiOjQsImJ0IjowLCJjbSI6MzExNzMzLCJjaCI6MTE3OCwiY2siOnt9LCJjciI6MTE1MTg0NywiZGkiOiI3NjI5NDFhODVjZWY0NmIwOTM1MzgzZTEwYzAyNmE1YyIsImRtIjoxLCJmYyI6MTIxMDY1MiwiZmwiOjgxNzk1NiwiaXAiOiIxMTMuMTkwLjI0MC4xMzUiLCJrdyI6ImdpdCx2ZXJzaW9uLWNvbnRyb2wiLCJtayI6ImdpdCIsIm53IjoyMiwicGMiOjcuMTMsImVjIjo3LjEzLCJwciI6NzY1LCJydCI6MiwicmYiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20vdXJsP3NhPXQmcmN0PWomcT0mZXNyYz1zJnNvdXJjZT13ZWImY2Q9NSZjYWQ9cmphJnVhY3Q9OCZzcWk9MiZ2ZWQ9MENEUVFGakFFYWhVS0V3aTdtdXprcmMzSUFoV0c0S1lLSGF1MkJ0dyZ1cmw9aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy82NTM0NTQvaG93LWRvLXlvdS1tYWtlLWdpdC1pZ25vcmUtZmlsZXMtd2l0aG91dC11c2luZy1naXRpZ25vcmUmdXNnPUFGUWpDTkhwZHF3YVd3V2Y5OVNfOVRhazNBT0c5Ri1Ed1Emc2lnMj1vZkU4SnJHdHJsZS1ReFo2TUs5Ump3JmJ2bT1idi4xMDU0NTQ4NzMsZC5kR1kiLCJzdCI6ODI3NywidWsiOiJ1ZTEtZWM3ZDg0NmI3M2IxNDRhYjhlYTlmNGY4NjYyMDQ1NTYiLCJ6biI6NDMsInRzIjoxNDQ1MjE3NTE4OTA1LCJiZiI6dHJ1ZSwicG4iOiJhZHplcmszNTY1NDgzMTEiLCJ1ciI6Imh0dHBzOi8vd3d3LmF0bGFzc2lhbi5jb20vc29mdHdhcmUvamlyYT91dG1fc291cmNlPXN0YWNrb3ZlcmZsb3cmdXRtX21lZGl1bT1kaXNwbGF5JnV0bV9jb250ZW50PWpzLW51bWJlci0xXzcyOHg5MF9lbiZ1dG1fY2FtcGFpZ249amlyYS1zb2Z0d2FyZV9sYXVuY2hfbGlzdC0zIn0&amp;s=D8u9ChU9djJ6WAh8xPMWIkbEr2I" rel="nofollow" target="_blank" title=""><img src="bb_files/13ca6fce1d99479eb5b7dd12200d9c7e.jpg" title="" alt="" height="90" width="728" border="0"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img src="bb_files/i_004.gif" style="position:absolute;" height="0px" width="0px" border="0"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="653454" type="hidden">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">44</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+        <div class="favoritecount"><b>20</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>Due to external weird constraints I cannot modify the .gitignore of 
+my repository. Is there a way to ignore files and directories other than
+ modifying a .gitignore? Even if it is a global solution like a global 
+configuration that will be applied to all my repositories.</p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/git" class="post-tag js-gps-track" title="show questions tagged 'git'" rel="tag">git</a> <a href="http://stackoverflow.com/questions/tagged/version-control" class="post-tag js-gps-track" title="show questions tagged 'version-control'" rel="tag">version-control</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/653454" title="short permalink to this question" class="short-link" id="link-post-653454">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/653454/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature" align="right">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/653454/revisions" title="show all edits to this post">edited <span title="2009-04-18 14:16:39Z" class="relativetime">Apr 18 '09 at 14:16</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/2284/17-of-26"><div class="gravatar-wrapper-32"><img src="bb_files/0df7a99322106adb6368ba1a9babd19b.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/2284/17-of-26">17 of 26</a><br>
+        <span class="reputation-score" title="reputation score 17799" dir="ltr">17.8k</span><span title="9 gold badges"><span class="badge1"></span><span class="badgecount">9</span></span><span title="49 silver badges"><span class="badge2"></span><span class="badgecount">49</span></span><span title="73 bronze badges"><span class="badge3"></span><span class="badgecount">73</span></span>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info user-hover">
+    <div class="user-action-time">
+        asked <span title="2009-03-17 09:00:13Z" class="relativetime">Mar 17 '09 at 9:00</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/6068/pablo"><div class="gravatar-wrapper-32"><img src="bb_files/931970b8dc51b72e05e3a12b88612d61.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/6068/pablo">Pablo</a><br>
+        <span class="reputation-score" title="reputation score 61173" dir="ltr">61.2k</span><span title="81 gold badges"><span class="badge1"></span><span class="badgecount">81</span></span><span title="214 silver badges"><span class="badge2"></span><span class="badgecount">214</span></span><span title="328 bronze badges"><span class="badge3"></span><span class="badgecount">328</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-653454" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-653454" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								6 Answers
+                                <span style="display:none;" itemprop="answerCount">6</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/653454/how-do-you-make-git-ignore-files-without-using-gitignore?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active">active</a>
+        <a href="http://stackoverflow.com/questions/653454/how-do-you-make-git-ignore-files-without-using-gitignore?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest">oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/653454/how-do-you-make-git-ignore-files-without-using-gitignore?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="653495"></a>
+<div id="answer-653495" class="answer accepted-answer" data-answerid="653495" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="653495" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">70</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Do not forget, according to <a href="http://git-scm.com/docs/gitignore">gitignore</a>, that there is an order of precedence in the different "ignore pattern sources" that Git consider:</p>
+
+<ul>
+<li>Patterns read from the command line for those commands that support them.</li>
+<li>Patterns read from a .gitignore file in the same directory as the 
+path, or in any parent directory, with patterns in the higher level 
+files (up to the root) being overridden by those in lower level files 
+down to the directory containing the file. </li>
+<li>Patterns read from $GIT_DIR/info/exclude.</li>
+<li>Patterns read from the file specified by the configuration variable <code>core.excludesfile</code>.</li>
+</ul>
+
+<p>The last two can be a solution for your problem but:</p>
+
+<ul>
+<li>they are not replicated for a distant repository</li>
+<li>they can have their patterns overridden by the other sources </li>
+</ul>
+
+<p>(See also this <a href="http://stackoverflow.com/questions/640449/git-dont-show-me-pyc-in-the-list-of-untracked-files/640668#640668">SO question</a>)</p>
+
+<hr>
+
+<p>The other two solutions involve updating the index (<a href="http://git-scm.com/docs/git-update-index"><code>git update-index</code></a>):</p>
+
+<ul>
+<li><code>git update-index --assume-unchanged</code>: see "<a href="http://stackoverflow.com/a/6793752/6309">Git: untrack a file in local repo only and keep it in the remote repo</a>".<br>
+It is mentioned by <a href="http://stackoverflow.com/users/292408/elijah-lynn">Elijah Lynn</a> in <a href="http://stackoverflow.com/questions/653454/how-do-you-make-git-ignore-files-without-using-gitignore/653495#comment39345310_653495">the comments</a>.<br>
+<ul>
+<li>You can even ignore a folder content: "<a href="http://stackoverflow.com/a/12288918/6309"><code>git update-index --assume-unchanged</code> on directory</a>".  </li>
+<li>Use <code>--no-assume-unchange</code> to reverse the effect: See "<a href="http://stackoverflow.com/a/23189283/6309">Is it possible to <code>git add</code> a file currently protected by <code>assume-unchanged</code>?</a>".</li>
+</ul></li>
+</ul>
+
+<p>However, when you checkout another branch or when you <code>git pull</code>, that "ignore" status might be reset. Hence the other option:</p>
+
+<ul>
+<li><code>git update-index --skip-worktree</code>; see:
+<ul>
+<li>"<a href="http://stackoverflow.com/a/23011156/6309">ignore my changes in files but don't delete them from remote rep</a>" and </li>
+<li>"<a href="http://stackoverflow.com/a/9816844/6309">Preserve git --assume-unchanged files between branch checkouts</a>".</li>
+</ul></li>
+</ul>
+
+<p>The difference between the two is explained in "<a href="http://stackoverflow.com/q/13630849/6309">Git - Difference Between '<code>assume-unchanged</code>' and '<code>skip-worktree</code>'</a>".</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/653495" title="short permalink to this answer" class="short-link" id="link-post-653495">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/653495/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/653495/revisions" title="show all edits to this post">edited <span title="2014-08-12 05:29:59Z" class="relativetime">Aug 12 '14 at 5:29</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2009-03-17 09:21:06Z" class="relativetime">Mar 17 '09 at 9:21</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/6309/vonc"><div class="gravatar-wrapper-32"><img src="bb_files/7aa22372b695ed2b26052c340f9097eb.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/6309/vonc">VonC</a><br>
+        <span class="reputation-score" title="reputation score 531295" dir="ltr">531k</span><span title="140 gold badges"><span class="badge1"></span><span class="badgecount">140</span></span><span title="1430 silver badges"><span class="badge2"></span><span class="badgecount">1430</span></span><span title="1523 bronze badges"><span class="badge3"></span><span class="badgecount">1523</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-653495" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-39345310" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">You can use <code>update-index --assume-unchanged</code> @see <a href="http://stackoverflow.com/a/25253144/292408">stackoverflow.com/a/25253144/292408</a></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/292408/elijah-lynn" title="1706 reputation" class="comment-user">Elijah Lynn</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment39345310_653495"><span title="2014-08-11 22:06:39Z" class="relativetime-clean">Aug 11 '14 at 22:06</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-39351894" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@ElijahLynn sure. You also have <code>update-index --skip-work-tree</code>. I jave edited the answer to add some links to old answers of mine illustrating those two <code>update-index</code> commands.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/6309/vonc" title="531295 reputation" class="comment-user">VonC</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment39351894_653495"><span title="2014-08-12 05:30:46Z" class="relativetime-clean">Aug 12 '14 at 5:30</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-39362610" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Sweet, --skip-work-tree is very useful, thanks!</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/292408/elijah-lynn" title="1706 reputation" class="comment-user">Elijah Lynn</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment39362610_653495"><span title="2014-08-12 11:18:06Z" class="relativetime-clean">Aug 12 '14 at 11:18</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-653495" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1230091998",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1230091998"><a href="http://engine.adzerk.net/r?e=eyJhdiI6MTEzNywiYXQiOjQsImJ0IjowLCJjbSI6MzExNzMzLCJjaCI6MTE3OCwiY2siOnt9LCJjciI6MTE1MTg1OCwiZGkiOiIxYjAxMTJkNGJjZGU0MzU2YWI2MjgzYjY0MzRmZTNjMyIsImRtIjoxLCJmYyI6MTIxMDY2NywiZmwiOjgxNzk1OCwiaXAiOiIxMTMuMTkwLjI0MC4xMzUiLCJrdyI6ImdpdCx2ZXJzaW9uLWNvbnRyb2wiLCJtayI6ImdpdCIsIm53IjoyMiwicGMiOjMuNTcsImVjIjozLjU3LCJwciI6NzY1LCJydCI6MiwicmYiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20vdXJsP3NhPXQmcmN0PWomcT0mZXNyYz1zJnNvdXJjZT13ZWImY2Q9NSZjYWQ9cmphJnVhY3Q9OCZzcWk9MiZ2ZWQ9MENEUVFGakFFYWhVS0V3aTdtdXprcmMzSUFoV0c0S1lLSGF1MkJ0dyZ1cmw9aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy82NTM0NTQvaG93LWRvLXlvdS1tYWtlLWdpdC1pZ25vcmUtZmlsZXMtd2l0aG91dC11c2luZy1naXRpZ25vcmUmdXNnPUFGUWpDTkhwZHF3YVd3V2Y5OVNfOVRhazNBT0c5Ri1Ed1Emc2lnMj1vZkU4SnJHdHJsZS1ReFo2TUs5Ump3JmJ2bT1idi4xMDU0NTQ4NzMsZC5kR1kiLCJzdCI6ODI3NywidWsiOiJ1ZTEtZWM3ZDg0NmI3M2IxNDRhYjhlYTlmNGY4NjYyMDQ1NTYiLCJ6biI6NDQsInRzIjoxNDQ1MjE3NTE4OTA4LCJiZiI6dHJ1ZSwicG4iOiJhZHplcmsxMjMwMDkxOTk4IiwidXIiOiJodHRwczovL3d3dy5hdGxhc3NpYW4uY29tL3NvZnR3YXJlL2ppcmE_dXRtX3NvdXJjZT1zdGFja292ZXJmbG93JnV0bV9tZWRpdW09ZGlzcGxheSZ1dG1fY29udGVudD1qcy1udW1iZXItMV83Mjh4OTBfZW4mdXRtX2NhbXBhaWduPWppcmEtc29mdHdhcmVfbGF1bmNoX2xpc3QtMyJ9&amp;s=_ReNjo6MNHN2rKYPma1mZHVSI0A" rel="nofollow" target="_blank" title=""><img src="bb_files/13ca6fce1d99479eb5b7dd12200d9c7e.jpg" title="" alt="" height="90" width="728" border="0"></a><div class="adzerk-vote-controls" style="display: none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img src="bb_files/i_003.gif" style="position:absolute;" height="0px" width="0px" border="0"></div>
+  
+<a name="653458"></a>
+<div id="answer-653458" class="answer" data-answerid="653458" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="653458" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">44</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>If you can modify <code>.git/info/exclude</code> you can put the same rules there. But that file is within your local repo only.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/653458" title="short permalink to this answer" class="short-link" id="link-post-653458">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/653458/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2009-03-17 09:03:00Z" class="relativetime">Mar 17 '09 at 9:03</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/22459/%c3%93lafur-waage"><div class="gravatar-wrapper-32"><img src="bb_files/89b8f4a7429270308ac301bf7605f974.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/22459/%c3%93lafur-waage">Ólafur Waage</a><br>
+        <span class="reputation-score" title="reputation score 45902" dir="ltr">45.9k</span><span title="8 gold badges"><span class="badge1"></span><span class="badgecount">8</span></span><span title="111 silver badges"><span class="badge2"></span><span class="badgecount">111</span></span><span title="167 bronze badges"><span class="badge3"></span><span class="badgecount">167</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-653458" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-466818" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">It sounds like this is probably your best bet; let's you exclude files from your local repository.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/41116/abizern" title="66571 reputation" class="comment-user">Abizern</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment466818_653458"><span title="2009-03-17 09:25:33Z" class="relativetime-clean">Mar 17 '09 at 9:25</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-24219427" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">How does this work with submodules? There's no <code>.git</code> directory in a submodule...</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/697190/yourfriendzak" title="2406 reputation" class="comment-user">yourfriendzak</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment24219427_653458"><span title="2013-05-29 00:55:33Z" class="relativetime-clean">May 29 '13 at 0:55</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-44009791" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@yourfriendzak a submodule's <code>.git</code> folder is actually at <code>parent_repo/.git/modules/submodule_name</code>. So you'd edit <code>parent_repo/.git/modules/submodule_name/info/exclude</code></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/805227/matt-brennan" title="1216 reputation" class="comment-user">Matt Brennan</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment44009791_653458"><span title="2015-01-06 14:23:01Z" class="relativetime-clean">Jan 6 at 14:23</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-653458" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="653489"></a>
+<div id="answer-653489" class="answer" data-answerid="653489" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="653489" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">13</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>There are three ways to tell GIT which files to ignore:</p>
+
+<ul>
+<li>.gitignore files</li>
+<li>$GIT_DIR/.git/info/exclude</li>
+<li>Files pointed to via the <code>core.excludesfile</code> setting</li>
+</ul>
+
+<p>The latter two points could solve your problem.</p>
+
+<p>For further information, see <a href="http://git-scm.com/docs/gitignore">gitignore(5)</a>.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/653489" title="short permalink to this answer" class="short-link" id="link-post-653489">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/653489/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2009-03-17 09:19:23Z" class="relativetime">Mar 17 '09 at 9:19</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/34855/ferdinand-beyer"><div class="gravatar-wrapper-32"><img src="bb_files/5a1bd79c7364ca280ec9016ffbe41d65.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/34855/ferdinand-beyer">Ferdinand Beyer</a><br>
+        <span class="reputation-score" title="reputation score 33070" dir="ltr">33.1k</span><span title="5 gold badges"><span class="badge1"></span><span class="badgecount">5</span></span><span title="70 silver badges"><span class="badge2"></span><span class="badgecount">70</span></span><span title="105 bronze badges"><span class="badge3"></span><span class="badgecount">105</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-653489" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-653489" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="25253144"></a>
+<div id="answer-25253144" class="answer" data-answerid="25253144" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="25253144" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Ignore local changes to tracked files:
+<code>git update-index --assume-unchanged my-file.php</code></p>
+
+<p>Unignore local changes to tracked files:
+<code>git update-index --no-assume-unchanged my-file.php</code></p>
+
+<p>source: <code>git help update-index</code></p>
+
+<pre><code>--[no-]assume-unchanged
+           ...
+           This option can be also used as a coarse file-level mechanism to ignore uncommitted changes in tracked
+           files (akin to what .gitignore does for untracked files). Git will fail (gracefully) in case it needs to
+           modify this file in the index e.g. when merging in a commit; thus, in case the assumed-untracked file is
+           changed upstream, you will need to handle the situation manually.
+</code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/25253144" title="short permalink to this answer" class="short-link" id="link-post-25253144">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/25253144/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2014-08-11 22:02:44Z" class="relativetime">Aug 11 '14 at 22:02</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/292408/elijah-lynn"><div class="gravatar-wrapper-32"><img src="bb_files/37619b86352460ca9b5b67d3f1ead55e.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/292408/elijah-lynn">Elijah Lynn</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">1,706</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="15 silver badges"><span class="badge2"></span><span class="badgecount">15</span></span><span title="24 bronze badges"><span class="badge3"></span><span class="badgecount">24</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-25253144" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-25253144" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="28887331"></a>
+<div id="answer-28887331" class="answer" data-answerid="28887331" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="28887331" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>If you just want to have some local files in the repository and the 
+subdirectory location is flexible, you can put your files in <code>tracked_dir1/tracked_dir2/untracked_dir/</code> and then add a <code>tracked_dir1/tracked_dir2/untracked_dir/.gitignore</code> with contents like:</p>
+
+<p><code>*</code></p>
+
+<p>I.e.</p>
+
+<pre><code>$ cat &gt; tracked_dir1/tracked_dir2/untracked_dir/.gitignore
+*
+&lt;Ctrl+D&gt;
+</code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/28887331" title="short permalink to this answer" class="short-link" id="link-post-28887331">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/28887331/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-03-05 20:43:06Z" class="relativetime">Mar 5 at 20:43</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/724752/david-winiecki"><div class="gravatar-wrapper-32"><img src="bb_files/9b57513b1618c62e806b81f9fdb9de4f.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/724752/david-winiecki">David Winiecki</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">1,202</span><span title="10 silver badges"><span class="badge2"></span><span class="badgecount">10</span></span><span title="20 bronze badges"><span class="badge3"></span><span class="badgecount">20</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-28887331" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-28887331" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="29423251"></a>
+<div id="answer-29423251" class="answer" data-answerid="29423251" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="29423251" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>You can use the global gitignore method instead of modifying the one in the project
+<a href="https://help.github.com/articles/ignoring-files/#create-a-global-gitignore" rel="nofollow">https://help.github.com/articles/ignoring-files/#create-a-global-gitignore</a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/29423251" title="short permalink to this answer" class="short-link" id="link-post-29423251">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/29423251/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-04-02 22:02:47Z" class="relativetime">Apr 2 at 22:02</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1106420/frazras"><div class="gravatar-wrapper-32"><img src="bb_files/b78474bf98ba3a09ca0a5f9960692a8b.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1106420/frazras">frazras</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">825</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="6 silver badges"><span class="badge2"></span><span class="badgecount">6</span></span><span title="25 bronze badges"><span class="badge3"></span><span class="badgecount">25</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-29423251" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-29423251" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="/questions/653454/answer/submit" method="post" class="post-form">
+						    <input id="post-id" value="653454" type="hidden">
+                            <input id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" type="hidden">
+                            <input name="referrer" value="http://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=5&amp;cad=rja&amp;uact=8&amp;sqi=2&amp;ved=0CDQQFjAEahUKEwi7muzkrc3IAhWG4KYKHau2Btw&amp;url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F653454%2Fhow-do-you-make-git-ignore-files-without-using-gitignore&amp;usg=AFQjCNHpdqwaWwWf99S_9Tak3AOG9F-DwQ&amp;sig2=ofE8JrGtrle-QxZ6MK9Rjw&amp;bvm=bv.105454873,d.dGY" type="hidden">
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.options.snippets.enabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li style="left: 0px;" class="wmd-button" id="wmd-bold-button"><span style="background-position: 0px -20px;"></span></li><li style="left: 25px;" class="wmd-button" id="wmd-italic-button"><span style="background-position: -20px -20px;"></span></li><li style="left: 50px;" class="wmd-spacer" id="wmd-spacer1"><span style="background-position: -40px -20px;"></span></li><li style="left: 75px;" class="wmd-button" id="wmd-link-button"><span style="background-position: -40px -20px;"></span></li><li style="left: 100px;" class="wmd-button" id="wmd-quote-button"><span style="background-position: -60px -20px;"></span></li><li style="left: 125px;" class="wmd-button" id="wmd-code-button"><span style="background-position: -80px -20px;"></span></li><li style="left: 150px;" class="wmd-button" id="wmd-image-button"><span style="background-position: -100px -20px;"></span></li><li style="left: 175px;" class="wmd-spacer" id="wmd-spacer2"><span style="background-position: -120px -20px;"></span></li><li style="left: 200px;" class="wmd-button" id="wmd-olist-button"><span style="background-position: -120px -20px;"></span></li><li style="left: 225px;" class="wmd-button" id="wmd-ulist-button"><span style="background-position: -140px -20px;"></span></li><li style="left: 250px;" class="wmd-button" id="wmd-heading-button"><span style="background-position: -160px -20px;"></span></li><li style="left: 275px;" class="wmd-button" id="wmd-hr-button"><span style="background-position: -180px -20px;"></span></li><li style="left: 300px;" class="wmd-spacer" id="wmd-spacer3"><span style="background-position: -200px -20px;"></span></li><li style="left: 325px;" class="wmd-button" id="wmd-undo-button"><span style="background-position: -200px -20px;"></span></li><li style="left: 350px;" class="wmd-button" id="wmd-redo-button"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" value="5c51dbc6f56ddfc901c76c0f2145d3fb" type="hidden">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?ssrc=question_page&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f653454%2fhow-do-you-make-git-ignore-files-without-using-gitignore%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                                    
+                                var $window = $(window),
+                                    onScroll = function(e) {
+                                        var $elem = $('.new-login-left'),
+                                            docViewTop = $window.scrollTop(),
+                                            docViewBottom = docViewTop + $window.height(),
+                                            elemTop = $elem.offset().top,
+                                            elemBottom = elemTop + $elem.height();							
+                                        if ((docViewTop < elemTop) && (docViewBottom > elemBottom))  {
+                                            StackExchange.using('gps', function() { StackExchange.gps.track('embedded_signup_form.view', { location: 'question_page' }); });
+                                            $window.unbind('scroll', onScroll);
+                                        }
+                                    };
+                                $window.on('scroll', onScroll);
+                                    
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input name="manual-openid" class="manual-openid" type="hidden">
+                    <input name="use-facebook" class="use-facebook" value="false" type="hidden">
+                    <input name="use-google" class="use-google" value="false" type="hidden">
+                    <input class="submit-openid" value="Submit" style="display:none" type="button">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" size="30" maxlength="30" tabindex="105" type="text">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" size="30" maxlength="100" tabindex="106" placeholder="required, but never shown" type="email">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'http%3a%2f%2fstackoverflow.com%2fquestions%2f653454%2fhow-do-you-make-git-ignore-files-without-using-gitignore%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" />
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" value="Post Your Answer" tabindex="110" type="submit">
+									<a href="#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input name="legalLinksShown" value="1" type="hidden">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/git" class="post-tag" title="show questions tagged 'git'" rel="tag">git</a> <a href="http://stackoverflow.com/questions/tagged/version-control" class="post-tag" title="show questions tagged 'version-control'" rel="tag">version-control</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2009-03-17 09:00:13Z"><b>6 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>17232 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/653454/how-do-you-make-git-ignore-files-without-using-gitignore?lastactivity" class="lastactivity-link" title="2015-04-02 22:02:47Z">6 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1107263236",[17,2221]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1107263236"><a href="http://engine.adzerk.net/r?e=eyJhdiI6MTEzNywiYXQiOjE3LCJidCI6MCwiY20iOjMxMTczMywiY2giOjExNzgsImNrIjp7fSwiY3IiOjExNTE4NTAsImRpIjoiNjQ0NmU3YjVjM2EwNDkwNWExMGJlYmQyM2EzNjI1OWEiLCJkbSI6MSwiZmMiOjEyMTA2NTYsImZsIjo4MTc5NTcsImlwIjoiMTEzLjE5MC4yNDAuMTM1Iiwia3ciOiJnaXQsdmVyc2lvbi1jb250cm9sIiwibWsiOiJnaXQiLCJudyI6MjIsInBjIjo1LjYzLCJlYyI6NS42MywicHIiOjc2NSwicnQiOjIsInJmIjoiaHR0cDovL3d3dy5nb29nbGUuY29tL3VybD9zYT10JnJjdD1qJnE9JmVzcmM9cyZzb3VyY2U9d2ViJmNkPTUmY2FkPXJqYSZ1YWN0PTgmc3FpPTImdmVkPTBDRFFRRmpBRWFoVUtFd2k3bXV6a3JjM0lBaFdHNEtZS0hhdTJCdHcmdXJsPWh0dHA6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNjUzNDU0L2hvdy1kby15b3UtbWFrZS1naXQtaWdub3JlLWZpbGVzLXdpdGhvdXQtdXNpbmctZ2l0aWdub3JlJnVzZz1BRlFqQ05IcGRxd2FXd1dmOTlTXzlUYWszQU9HOUYtRHdRJnNpZzI9b2ZFOEpyR3RybGUtUXhaNk1LOVJqdyZidm09YnYuMTA1NDU0ODczLGQuZEdZIiwic3QiOjgyNzcsInVrIjoidWUxLWVjN2Q4NDZiNzNiMTQ0YWI4ZWE5ZjRmODY2MjA0NTU2Iiwiem4iOjQ1LCJ0cyI6MTQ0NTIxNzUxODkxMCwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTEwNzI2MzIzNiIsInVyIjoiaHR0cHM6Ly93d3cuYXRsYXNzaWFuLmNvbS9zb2Z0d2FyZS9qaXJhP3V0bV9zb3VyY2U9c3RhY2tvdmVyZmxvdyZ1dG1fbWVkaXVtPWRpc3BsYXkmdXRtX2NvbnRlbnQ9anMtbnVtYmVyLTFfMjIweDI1MF9lbiZ1dG1fY2FtcGFpZ249amlyYS1zb2Z0d2FyZV9sYXVuY2hfbGlzdC0zIn0&amp;s=mIPJc3z6_a1DjhHIb3PAwEKm1GQ" rel="nofollow" target="_blank" title=""><img src="bb_files/ec7547b8f3884b269c2ebb050109460a.jpg" title="" alt="" height="250" width="220" border="0"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img src="bb_files/i_002.gif" style="position:absolute;" height="0px" width="0px" border="0"></div>
+        <div class=" orange looking tagged" id="hireme"><a href="http://careers.stackoverflow.com/jobs" target="_blank" data-hf="h" class="top"> <span>Looking for a job?</span></a><ul class="jobs"><li><a data-cid="182989" href="http://careers.stackoverflow.com/jobs/97018/qa-engineer-rtp-north-carolina-r65-labs" target="_blank" title="QA Engineer - RTP, North Carolina at R65 Labs. Click to learn more.">QA Engineer - RTP, North Carolina<br><div class="company">R65 Labs</div><div class="location" title="Durham, NC">Durham, NC</div><span class="post-tag">python</span><span class="post-tag">perl</span></a></li><li><a data-cid="183694" href="http://careers.stackoverflow.com/jobs/97729/software-architect-java-60k-crossover" target="_blank" title="Software Architect Java - $60K at Crossover. Click to learn more.">Software Architect Java - $60K<br><div class="company">Crossover</div><div class="location" title="Tân Bình, Vietnam / remote">Tân Bình, Vietnam / remote</div><span class="post-tag">java</span><span class="post-tag">rest</span></a></li></ul><img class="impression" src="bb_files/i.gif" style="display:none;"></div>
+			<div style="margin-bottom: 10px;">
+        
+
+<style type="text/css">
+#newsletter-ad {
+    width: 190px;
+    height: 250px;
+    overflow: hidden;
+    background: url('//cdn.sstatic.net/stackoverflow/img/newsletter-ad.png?v=2');
+    padding: 0 15px 0 15px;
+}
+#newsletter-ad-header {
+    margin-top: 60px;
+}
+#newsletter-ad ul {
+    margin: 1em 0 1em 1.5em;
+}
+#newsletter-ad ul li {
+    margin-bottom: 5px;
+}
+#newsletter-signup-container {
+    text-align: center;
+}
+#newsletter-preview-container {
+    margin-top: 10px;
+    text-align: center;
+}
+#newsletter-email-input {
+    width: 200px;
+}
+</style>
+
+<script>
+    StackExchange.ready(function () {
+        StackExchange.newsletterAd.init();
+    });
+</script>
+
+<div id="newsletter-ad">
+    <p id="newsletter-ad-header">Get the <b>weekly newsletter!</b></p>
+    <ul>
+        <li>Top questions and answers</li>
+        <li>Important announcements</li>
+        <li>Unanswered questions</li>
+    </ul>
+    <div id="newsletter-signup-container"><input id="newsletter-signup" value="Sign up for the newsletter" type="button"></div>
+    <p id="newsletter-preview-container">see an <a href="http://stackexchange.com/newsletters/newsletter?site=stackoverflow.com" id="newsletter-preview">example newsletter</a></p>
+</div>
+
+    </div>  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/4308610?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted large">149</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/4308610/how-to-ignore-certain-files-in-git?lq=1" class="question-hyperlink">How to ignore certain files in git?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/640449?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">47</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/640449/git-dont-show-me-pyc-in-the-list-of-untracked-files?lq=1" class="question-hyperlink">git, don't show me *.pyc in the list of untracked files!</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/13630849?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">65</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/13630849/git-difference-between-assume-unchanged-and-skip-worktree?lq=1" class="question-hyperlink">Git - Difference Between 'assume-unchanged' and 'skip-worktree'</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/12288212?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">44</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/12288212/git-update-index-assume-unchanged-on-directory?lq=1" class="question-hyperlink">git update-index --assume-unchanged on directory</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/8721984?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">27</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/8721984/git-ignore-files-for-public-repository-but-not-for-private?lq=1" class="question-hyperlink">Git: Ignore files for public repository, but not for private</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/6791889?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">13</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/6791889/git-untrack-a-file-in-local-repo-only-and-keep-it-in-the-remote-repo?lq=1" class="question-hyperlink">Git: untrack a file in local repo only and keep it in the remote repo</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/9815416?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">22</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/9815416/preserve-git-assume-unchanged-files-between-branch-checkouts?lq=1" class="question-hyperlink">Preserve git --assume-unchanged files between branch checkouts</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/801840?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/801840/started-using-git-recently-just-noticed-clones-of-my-files-with-append?lq=1" class="question-hyperlink">Started using git recently … just noticed clones of my files with ' ~ ' appended in the end… why is this happening</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/23010760?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/23010760/ignore-my-changes-in-files-but-dont-delete-them-from-remote-rep?lq=1" class="question-hyperlink">ignore my changes in files but don't delete them from remote rep</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/23188386?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">5</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/23188386/is-it-possible-to-git-add-a-file-currently-protected-by-assume-unchanged?lq=1" class="question-hyperlink">Is it possible to `git add` a file currently protected by `assume-unchanged`?</a>
+</div>					<div class="spacer more">
+				<a href="http://stackoverflow.com/questions/linked/653454?lq=1">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/52704?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted extra-large">1802
+    </div>
+</a><a href="http://stackoverflow.com/questions/52704/how-do-you-discard-unstaged-changes-in-git?rq=1" class="question-hyperlink">How do you discard unstaged changes in Git?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/79165?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted large">939
+    </div>
+</a><a href="http://stackoverflow.com/questions/79165/how-to-migrate-svn-repository-with-history-to-a-new-git-repository?rq=1" class="question-hyperlink">How to migrate SVN repository with history to a new Git repository?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/215718?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted extra-large">1497
+    </div>
+</a><a href="http://stackoverflow.com/questions/215718/reset-or-revert-a-specific-file-to-a-specific-revision-using-git?rq=1" class="question-hyperlink">Reset or revert a specific file to a specific revision using Git?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/315911?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes large">855
+    </div>
+</a><a href="http://stackoverflow.com/questions/315911/git-for-beginners-the-definitive-practical-guide?rq=1" class="question-hyperlink">Git for beginners: The definitive practical guide</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/540535?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted large">423
+    </div>
+</a><a href="http://stackoverflow.com/questions/540535/managing-large-binary-files-with-git?rq=1" class="question-hyperlink">Managing large binary files with git</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/767147?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted large">659
+    </div>
+</a><a href="http://stackoverflow.com/questions/767147/ignore-the-gitignore-file-itself?rq=1" class="question-hyperlink">Ignore the .gitignore file itself</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/927358?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted extra-large">7901
+    </div>
+</a><a href="http://stackoverflow.com/questions/927358/how-do-you-undo-the-last-commit?rq=1" class="question-hyperlink">How do you undo the last commit?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/987142?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted large">457
+    </div>
+</a><a href="http://stackoverflow.com/questions/987142/make-gitignore-ignore-everything-except-a-few-files?rq=1" class="question-hyperlink">Make .gitignore ignore everything except a few files</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/1125968?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted extra-large">2295
+    </div>
+</a><a href="http://stackoverflow.com/questions/1125968/force-git-to-overwrite-local-files-on-pull?rq=1" class="question-hyperlink">Force Git to overwrite local files on pull</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/1139762?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted extra-large">1291
+    </div>
+</a><a href="http://stackoverflow.com/questions/1139762/ignore-files-that-have-already-been-committed-to-a-git-repository?rq=1" class="question-hyperlink">Ignore files that have already been committed to a Git repository</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/103064/i-forgot-to-shred-a-file-before-deleting-it-on-windows-how-do-i-shred-that-pa" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    I forgot to shred a file before deleting it (on 
+Windows). How do I shred that part of file system now where the file was
+ located?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/27680/is-it-plausible-to-have-two-written-forms-of-one-spoken-language-that-are-so-dif" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it plausible to have two written forms of one 
+spoken language that are so different as to be indecipherable?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-windowsphone" title="Windows Phone Stack Exchange"></div><a href="http://windowsphone.stackexchange.com/questions/11718/windows-10-nokia-lumia-720-too-slow" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:427 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Windows 10 nokia lumia 720 too slow
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/27582/how-can-a-pacifist-country-protect-itself" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can a pacifist country protect itself?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="http://aviation.stackexchange.com/questions/22067/why-dont-pilots-control-window-shades-seat-recliners" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why don't pilots control window shades &amp; seat recliners?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/213279/where-does-the-energy-go-in-a-rocket-when-no-work-is-done" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Where does the energy go in a rocket when no work is done?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="http://tex.stackexchange.com/questions/273653/making-large-numbers-readable" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Making large numbers readable
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/195943/how-does-a-laser-printer-control-the-laser-to-produce-such-high-resolutions" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How does a laser printer control the laser to produce such high resolutions?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1486464/find-all-five-solutions-of-the-following-equation" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Find all five solutions of the following equation
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/61108/koopa-shell-sequence" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Koopa Shell Sequence
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-diy" title="Home Improvement Stack Exchange"></div><a href="http://diy.stackexchange.com/questions/76433/please-help-me-understanding-this-wiring" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:73 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    please help me understanding this wiring
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/221214/logical-complexity-of-algebraically-closed-fields" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Logical complexity of algebraically closed fields
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/105102/where-is-hill-valley" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Where is Hill Valley?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-gis" title="Geographic Information Systems Stack Exchange"></div><a href="http://gis.stackexchange.com/questions/166937/adding-openlayers-basemap-to-a-qgis-project-changes-the-crs-to-wgs-84-pseudo-m" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:79 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Adding OpenLayers basemap to a QGIS project changes the CRS to WGS 84 / Pseudo Mercator
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1486409/determining-from-its-graph-whether-a-vector-field-is-conservative" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Determining from its graph whether a vector field is conservative
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-hsm" title="History of Science and Mathematics Stack Exchange"></div><a href="http://hsm.stackexchange.com/questions/2940/is-there-any-famous-theorem-or-result-proved-by-women-mathematicians" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:587 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there any famous theorem or result proved by women mathematicians?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-parenting" title="Parenting Stack Exchange"></div><a href="http://parenting.stackexchange.com/questions/22546/is-it-safer-to-install-a-back-seat-car-seat-behind-the-driver-or-behind-the-pass" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:228 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it safer to install a back seat car seat behind the driver or behind the passenger?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="http://askubuntu.com/questions/686938/announce-the-time-on-the-hour" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Announce the time on the hour?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-dba" title="Database Administrators Stack Exchange"></div><a href="http://dba.stackexchange.com/questions/118399/why-do-we-use-file-1-in-scripts-for-restoring-a-database" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:182 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why do we use FILE =1 in scripts for restoring a database
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/236960/what-does-the-color-auto-option-for-gnu-grep-mean" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What does the --color=auto option for GNU grep mean?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/213284/relative-time-from-a-far-place" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Relative Time from a far place
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/55971/i-think-an-employer-believes-i-am-much-more-skilled-than-i-actually-am-should-i" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    I think an employer believes I am much more skilled 
+than I actually am. Should I let them know in advance, before accepting 
+the job offer?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="http://aviation.stackexchange.com/questions/21987/why-is-the-maximum-speed-of-current-fighter-aircraft-lower-than-those-from-the-1" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is the maximum speed of current fighter aircraft lower than those from the 1960's and 1970's?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="http://tex.stackexchange.com/questions/273747/missing-inserted-in-a-logic-function" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Missing $ inserted in a logic function
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/653454" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/653454/ivc/def7');});
+</script>
+<noscript>
+    <div><img src="/posts/653454/ivc/def7" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang"></div></div>
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick='StackExchange.switchMobile("on")'>mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (9)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (5)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2015 Stack Exchange Inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2015.10.13.2885
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('git,version-control');; ados_load(); });         
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');
+                        ga('set', 'dimension2', '|git|version-control|');         ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>
+            
+    
+</body></html>
