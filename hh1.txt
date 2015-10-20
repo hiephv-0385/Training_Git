@@ -1,0 +1,8 @@
+A new content for this file
+//Author: SonLK
+// There are some wrong things
+
+public class Song
+{
+	public string Author {get; set;}
+}
